@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    build: ./build
+    restart: always
+    environment:
+      FLAG: SECCON{I_didnt_come_up_with_witty_flag_too} 
+    ports:
+      - "8080:8080"

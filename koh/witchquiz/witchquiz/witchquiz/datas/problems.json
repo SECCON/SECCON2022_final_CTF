@@ -1,0 +1,42 @@
+[
+  {
+    "model": "witchquiz.Question",
+    "pk": 1,
+    "fields": {
+      "content": "purerandom",
+      "starttime": "2023-03-18T00:50:00+09:00",
+      "tickcount": 720,
+      "tickinterval": "00:00:05"
+    }
+  },
+  {
+    "model": "witchquiz.Question",
+    "pk": 2,
+    "fields": {
+      "content": "phase",
+      "starttime": "2023-03-18T01:50:00+09:00",
+      "tickcount": 1440,
+      "tickinterval": "00:00:05"
+    }
+  },
+  {
+    "model": "witchquiz.Question",
+    "pk": 3,
+    "fields": {
+      "content": "ec",
+      "starttime": "2023-03-18T03:50:00+09:00",
+      "tickcount": 1440,
+      "tickinterval": "00:00:05"
+    }
+  },
+  {
+    "model": "witchquiz.Question",
+    "pk": 4,
+    "fields": {
+      "content": "randomrotate",
+      "starttime": "2023-03-18T05:50:00+09:00",
+      "tickcount": 1440,
+      "tickinterval": "00:00:05"
+    }
+  }
+]

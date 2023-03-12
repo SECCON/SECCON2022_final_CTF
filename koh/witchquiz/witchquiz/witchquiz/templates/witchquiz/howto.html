@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/color-brewer.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <title>HowTo</title>
+</head>
+
+<body onload="gethostname()">
+  <div class="container">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">🧙Home</a>
+    </div>
+  </nav>
+    <h1>HowToPlay</h1>
+    <h2> Summary </h2>
+    <p>
+    This problem is designed to give you a lot of questions, and the content is to answer as many of them correctly as possible.
+    Some problems have over 100,000 questions.
+    </p>
+
+    <p>
+    In principle, questions are done by comparing arrays, and one point is awarded for a match between the array index and the value.
+    For example, if the correct ans The scoring instructions for the questions can be downloaded as source code from each question page. for example, the answer is <code>[1,2,3,4,5]</code> and you submit <code>[1,1,1,1,5]</code>, you will receive 2 points.
+    However, there are exceptions.
+    There are cases where you get 0 points if you make a mistake in a specific number, and there are also problems where points are gained after a certain amount of time has passed.
+    See the source code for each issue for details.
+    </p>
+
+    <p>
+    The scoring instructions for the questions can be downloaded as source code from each question page.
+    </p>
+
+    <h5> main points of this page </h5>
+    <ol>
+      <li> You can only submit once in 1 tick (5 seconds) </li>
+      <li> There is a problem with different answers every tick</li> 
+      <li> Some requests may not return for several seconds. Despite our best efforts, there is no compensation for missed ticks due to unreturned requests. ((DO NOT DoS)) </li>
+      <li> If you miss a tick, you can specify a past tick and submit it. (There is a 5 second submission limit) </li>
+      <li> For each stage, KoH score will be calculated by the highest score per 5 minutes </li>
+      <li> KoH scores are determined only by rank. Rank is determined solely by the number of points earned in a stage. </li>
+    </ol>
+
+    <h2> What's <i> Stage? </i> </h2>
+    <p>
+    There will be a total of 4 questions.
+    The problems are called  <i> STAGE </i>  and range STAGE1~STAGE4.
+    Each question will not be posed in parallel at the same time.
+    </p>
+
+    <h2> How are KoH scores calculated? / What's <i> Round? </i> </h2>
+    <p>
+    Every 5 minutes, the score is calculated based on the <b> highest score </b> at that point in time at <b> the stage being held </b>.
+    This unit of progress every 5 minutes is <i> round </i>.
+    In other words, when stage2 is being held, the score is calculated every 5 minutes based on the highest score at that time in stage2.
+
+    <p>
+    <b> The Koh score differs from the question score (number of correct answers).</b>
+    KoH scores are determined by the rank order of scores per 5 minutes.
+    The rankings and KoH points are as follows.
+    Even if you score 100,000 points, if you are in first place, you get 20 points for that round.
+    </p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">rank</th>
+          <th scope="col">KoH point</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1st</th>
+          <td> 20pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">2nd</th>
+          <td> 17pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">3rd</th>
+          <td> 14pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">4th</th>
+          <td> 12pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">5th</th>
+          <td> 10pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">6th</th>
+          <td> 8pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">7th</th>
+          <td> 6pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">8th</th>
+          <td> 5pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">9th</th>
+          <td> 4pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">10th</th>
+          <td> 3pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">11th</th>
+          <td> 2pts. </td>
+        </tr>
+        <tr>
+          <th scope="row">12th</th>
+          <td> 1pts. </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </p>
+
+    <h2> What's <i>tick?</i> </h2>
+    <p>
+    You can only answer a question once every 5 seconds.
+    This 5-second unit is the <i> tick </i>.
+    Thus, one round is 60 ticks.
+    </p>
+    <p>
+      <b>There is a problem where the correct answer changes with each tick.</b>
+    </p>
+
+    <p>
+    For example, <code> [1,2,3,4,5] </code> <b>in tick 1 </b> of stage 1 may become <code> [2,3,4,5,6] </code> <b>in tick 2</b> of stage1.
+    </p>
+
+    <p>
+    How it changes at each tick is specified in the source code distributed at each stage.
+    </p>
+
+    <p>
+    <b> Each tick can be submitted once </b>, and can also be submitted as a past tick by specifying it in the request.
+    </p>
+
+    <h2> How To Submit? </h2>
+    You can submit the following source code.
+    <p>
+      note: You cannot check the content of the submission, so please manage it yourself.
+    </p>
+
+    <pre class="python">
+import requests
+import json
+url = "http://<span class="domain"></span>/api/quiz/"
+
+your_token = # please enter your token
+headers = {'Authorization': 'Token ' + your_token}
+
+params = json.dumps({
+  'answer': [0,1,2,3,4], # [required] your answer (Substituted into `your_answer` in the code)
+  'stage': 1, # [required] this stage number. please use this value for this stage :)
+  'tick': 180 # [optional] specify the current tick or less (If omitted, current tick is set)
+  })
+res = requests.post(url, data=params, headers=headers)
+
+# Returns 200 if accepted. otherwise returns not 200
+if res.status_code == 200:
+  print(res.text)
+else:
+  print(res.text)
+    </pre>
+
+    <h2> List of Functions </h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">endpoint</th>
+          <th scope="col">summary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"> / </th>
+          <td> You can check the stage being held right now and see the scores for each round. </td>
+        </tr>
+        <tr>
+          <th scope="row"> /login/ </th>
+          <td> login page </td>
+        </tr>
+        <tr>
+          <th scope="row"> /howto/ </th>
+          <td> this page </td>
+        </tr>
+        <tr>
+          <th scope="row"> /{stage} </th>
+          <td> You can check the details of the stage being held. You can also check the submission history.</td>
+        </tr>
+        <tr>
+          <th scope="row"> /{stage}/{tick} </th>
+          <td> You can see what you submitted as that tick for that stage (You cannot check the content of the submission, so please manage it yourself.) </td>
+        </tr>
+        <tr>
+          <th scope="row"> /download/{stage} </th>
+          <td>  You can download the source code that describes how to score the issue. (It will not open until the event.)  </td>
+        </tr>
+        <tr>
+          <th scope="row"> (POST) /api/quiz </th>
+          <td> You can answer the question. As explained above. </td>
+        </tr>
+        <tr>
+          <th scope="row"> (GET) /api/quiz </th>
+          <td> You can check results submitted in the past. (You cannot check the content of the submission, so please manage it yourself.)
+            <pre>
+url = "http://<span class="domain"></span>/api/quiz/"
+your_token =  # please enter your token
+headers = {'Authorization': 'Token ' + your_token}
+params = json.dumps( { 'stage': 1, 'tick':60 })
+res = requests.get(url, data=params, headers=headers)
+print(res.text) # =>  {"recieved_time":"2023-02-10T04:52:46.686106","answer":[201],"score":201,"tick":6,"current_server_tick":70,"stage":1}
+            </pre>
+             </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2> PROHIBITIONS </h2>
+    This KoH assumes that you will score points solely by answering questions.
+    Please do not attack the scoring server by exploiting web vulnerabilities.
+    Also, questions are only accepted at 5 second intervals.
+    Please do not send requests that will overload the server, such as DoS.
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    
+  <script type="text/javascript">
+    const target = document.getElementsByClassName('domain');
+    for(let i =0;i<target.length;++i){
+      target[i].textContent = window.location.host
+    }
+  </script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

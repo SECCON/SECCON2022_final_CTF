@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: "${UID}:${GID}"
+    volumes:
+      - ./:/app/
+    ports:
+      - 80:8000

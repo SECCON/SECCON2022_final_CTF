@@ -1,0 +1,22 @@
+from json import load, dump
+from datetime import datetime
+from dateutil import parser
+import time
+
+s = []
+with open("./ranking.json", "r") as f:
+    ranking = load(f)
+
+    ctftime_ranks = []
+    for rank in ranking['scores']:
+        ctftime_ranks.append({'team': rank['team_name'], 'score': rank['score'], 'last_solve': rank['last_solve']})
+
+    s = sorted(ctftime_ranks, reverse=True, key=lambda x:(x['score'], -1*int(time.mktime(parser.parse(x['last_solve']).timetuple()))))
+
+    ctftime = {"standings": []}
+
+    for i, team in enumerate(s):
+        ctftime["standings"].append({"pos": i+1, "score": team["score"], "team": team["team"]})
+
+    with open("./ctftime_format_ranking.json", "a") as f:
+        dump(ctftime, f)
